@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MotoGarage — Motorcycles & Scooters</title>
+<link rel="icon" href="public/favicon.svg">
+<script>try{var t=localStorage.getItem("theme")||(matchMedia("(prefers-color-scheme: light)").matches?"light":"dark");document.documentElement.dataset.theme=t}catch(e){}</script>
+<link rel="stylesheet" href="shop.css">
+</head>
+<body>
+<div class="promo">Free store pickup on every bike · Home delivery just ₱2,500</div>
+<header><div class="wrap bar">
+ <a class="logo" href="#top">Moto<span>Garage</span></a>
+ <nav><a href="#top">Featured</a><a href="#shop">Shop</a><a href="#why">Why us</a></nav>
+ <button class="ic" id="theme" aria-label="Toggle dark mode">☀️ Light</button>
+ <button class="ic" data-act="orders">Orders</button>
+ <button class="ic" data-act="wish">♡ Wishlist<i id="wc">0</i></button>
+ <button class="ic" data-act="cart">🛒 Cart<i id="cc">0</i></button>
+</div></header>
+<main class="wrap" id="top">
+ <section class="show" id="show">
+  <div class="info" id="info">
+   <div class="brandrow"><span class="brand" id="brand"></span><span class="tag" id="cat"></span></div>
+   <h1 class="model" id="model"></h1><div class="price" id="price"></div>
+   <p class="about" id="about"></p><p class="desc" id="desc"></p>
+   <div class="specs" id="specs"></div>
+   <div class="acts"><button class="btn" id="hadd">Add to cart</button><button class="btn o" id="hwish">♡ Wishlist</button><button class="btn o" id="hdet">Details</button></div>
+  </div>
+  <div class="stage" id="stage"><div class="ell"></div><span class="count" id="count"></span>
+   <button class="arrow prev" id="prev" aria-label="Previous">‹</button><button class="arrow next" id="next" aria-label="Next">›</button><div class="prog" id="prog"></div></div>
+ </section>
+ <div class="dots" id="dots"></div>
+ <h2 class="sec" id="shop">Shop all bikes</h2><p class="sub">Search, filter and add your favorites to the cart.</p>
+ <div class="tools" id="tools"></div><section class="grid" id="grid"></section>
+ <h2 class="sec" id="why">Why MotoGarage</h2>
+ <section class="why"><div>🛠️<b>Inspected bikes</b><span>Every bike is checked before handover.</span></div><div>📄<b>Papers handled</b><span>We prepare the registration documents.</span></div><div>🚚<b>Flexible delivery</b><span>Pick up in store or get it at home.</span></div><div>💬<b>Friendly support</b><span>Real people, quick replies.</span></div></section>
+</main>
+<footer><div class="wrap"><span>© 2026 MotoGarage · Demo store, no real payments.</span><span>support@motogarage.example</span></div></footer>
+<div class="ov" id="ov"></div><aside class="drawer" id="drawer" aria-live="polite"></aside>
+<div class="modal" id="modal"><div class="mb" id="mb"></div></div><div class="toast" id="toast" role="status"></div>
+<script src="shop.js"></script>
+</body>
+</html>

@@ -1,0 +1,131 @@
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;700&family=Barlow:wght@400;500&display=swap");
+
+:root {
+  --bg: #ffffff;
+  --text: #111111;
+  --muted: #6b6b6b;
+  --stage-base: #1a1a1a;
+  --stage-mid: #4a4a4a;
+  --stage-top: #8c8c8c;
+  --accent: #1f5cff; /* blue on the selected button only */
+}
+
+* { box-sizing: border-box; margin: 0; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Barlow", system-ui, sans-serif;
+}
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 28px 16px 24px;
+}
+
+h1 {
+  font-family: "Barlow Condensed", sans-serif;
+  font-weight: 700;
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
+}
+
+/* ---- stage ---- */
+.scene {
+  position: relative;
+  width: min(760px, 100%);
+  height: 400px;
+  margin-top: 12px;
+}
+
+.stage {
+  position: absolute;
+  left: 50%;
+  bottom: 34px;
+  width: 88%;
+  height: 110px;
+  transform: translateX(-50%);
+}
+
+.stage i {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: block;
+  width: 100%;
+  height: 84px;
+  border-radius: 50%;
+}
+.stage .base { bottom: 0;    background: var(--stage-base); }
+.stage .mid  { bottom: 12px; background: var(--stage-mid); }
+.stage .top  { bottom: 24px; background: var(--stage-top); }
+
+/* ---- bike ---- */
+.bike {
+  position: absolute;
+  left: 50%;
+  bottom: 88px;
+  width: 64%;
+  max-height: 300px;
+  object-fit: contain;
+  transform: translateX(-50%);
+  animation: slide 0.35s ease;
+}
+
+@keyframes slide {
+  from { opacity: 0; transform: translateX(-46%); }
+  to   { opacity: 1; transform: translateX(-50%); }
+}
+
+.missing {
+  position: absolute;
+  left: 50%;
+  bottom: 120px;
+  transform: translateX(-50%);
+  border: 2px dashed var(--muted);
+  color: var(--muted);
+  border-radius: 10px;
+  padding: 28px 22px;
+  text-align: center;
+}
+
+/* ---- info + selector ---- */
+.info { text-align: center; margin: 18px 0 10px; min-height: 64px; }
+.info h2 { font-family: "Barlow Condensed", sans-serif; font-size: 2rem; font-weight: 700; }
+.info p { color: var(--muted); }
+
+.picker {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+  max-width: 760px;
+}
+
+.picker button {
+  font: 500 0.95rem "Barlow", sans-serif;
+  color: var(--text);
+  background: transparent;
+  border: 1.5px solid #bdbdbd;
+  border-radius: 999px;
+  padding: 8px 16px;
+  cursor: pointer;
+}
+.picker button:hover { border-color: var(--text); }
+.picker button[aria-pressed="true"] {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+button:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+
+@media (max-width: 520px) {
+  .scene { height: 300px; }
+  .bike { width: 78%; bottom: 74px; }
+  .stage { height: 90px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .bike { animation: none; }
+}
